@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:text="My Life Logger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15pt"
+        android:gravity="center_horizontal"
+        android:id="@+id/title"
+        android:typeface="monospace"
+        />
+
+    <Button
+        android:text="+ Note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fcbdbd"
+        android:id="@+id/button2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onClickedButton3"/>
+
+    <Button
+        android:text="Record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fcd9bd"
+        android:id="@+id/button3"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onClickedButton2"
+        />
+
+    <Button
+        android:text="Goal Management"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fcfcbd"
+        android:id="@+id/button4"
+        android:layout_above="@+id/button3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onClickedButton1" />
+
+
+</RelativeLayout>
