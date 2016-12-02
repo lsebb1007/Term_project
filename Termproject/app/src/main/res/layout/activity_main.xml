@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,11 +15,19 @@
         android:id="@+id/title"
         android:typeface="monospace"
         />
+    <ImageView
+        android:layout_width="230dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@mipmap/calendar"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView3" />
 
     <Button
         android:text="+ Note"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:background="#fcbdbd"
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
@@ -29,7 +38,7 @@
     <Button
         android:text="Record"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:background="#fcd9bd"
         android:id="@+id/button3"
         android:layout_above="@+id/button2"
@@ -41,13 +50,15 @@
     <Button
         android:text="Goal Management"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:background="#fcfcbd"
         android:id="@+id/button4"
         android:layout_above="@+id/button3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="onClickedButton1" />
+
+
 
 
 </RelativeLayout>

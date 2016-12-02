@@ -13,4 +13,11 @@
     tools:context="com.example.seungeonlee.termproject.managementActivity"
     tools:showIn="@layout/activity_management">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="false"
+        android:id="@+id/listview1" />
+
 </RelativeLayout>

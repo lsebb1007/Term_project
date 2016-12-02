@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_add2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.seungeonlee.termproject.AddActivity"
+    tools:showIn="@layout/activity_add2">
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/radioGroup">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Study"
+                android:typeface="monospace"
+                android:onClick="SelectClick"
+                android:id="@+id/studybtn" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exercise"
+                android:onClick="SelectClick"
+                android:typeface="monospace"
+                android:id="@+id/exercisebtn" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:onClick="SelectClick"
+                android:typeface="monospace"
+                android:id="@+id/datebtn" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Etc"
+                android:onClick="SelectClick"
+                android:typeface="monospace"
+                android:id="@+id/etcbtn" />
+        </RadioGroup>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup"
+            android:layout_centerHorizontal="true">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:id="@+id/linear">
+
+                <ImageButton
+                    android:layout_width="90dp"
+                    android:id="@+id/btn_take_camera"
+                    android:layout_height="80dp"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="5"
+                    android:background="#ffffff"
+                    app:srcCompat="@mipmap/camera" />
+
+                <ImageButton
+                    android:layout_width="90dp"
+                    android:layout_height="80dp"
+                    android:gravity="center_horizontal"
+                    app:srcCompat="@mipmap/gallery"
+                    android:layout_weight="5"
+                    android:background="#ffffff"
+                    android:id="@+id/btn_select_gallery" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/linear"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/imageView2" />
+            <EditText
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView2"
+                android:id="@+id/editText"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText"
+                android:id="@+id/linear2"
+                >
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/map"
+                    android:layout_weight="4"
+                    android:layout_below="@+id/editText"
+                    android:background="#ffffff"
+                    android:id="@+id/button01" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="현재위치는.."
+                    android:id="@+id/location_view" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/linear2"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:id="@+id/linear3">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/start"
+                    android:onClick="myOnClick"
+                    android:background="#ffffff"
+                    android:id="@+id/startbtn"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/pause"
+                    android:background="#ffffff"
+                    android:onClick="myOnClick"
+                    android:id="@+id/pausebtn"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/stop"
+                    android:background="#ffffff"
+                    android:onClick="myOnClick"
+                    android:id="@+id/stopbtn"/>
+                <TextView
+                    android:id="@+id/time_out"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:textSize="26sp"
+                    android:textColor="#777777"
+                    android:text="00:00:00" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+</RelativeLayout>

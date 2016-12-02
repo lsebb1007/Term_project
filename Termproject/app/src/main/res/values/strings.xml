@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Termproject</string>
     <string name="title_activity_add">addActivity</string>
+    <string name="title_activity_management_add">managementAdd</string>
+    <string name="title_activity_add2">Add2Activity</string>
 </resources>
