@@ -39,7 +39,7 @@ public class managementAdd extends AppCompatActivity implements View.OnClickList
         setSupportActionBar(toolbar);
 
 
-        final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Goal.db", null, 1);
+        final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Goal_1.db", null, 1);
         
         final EditText etgoal = (EditText) findViewById(R.id.editText);
         toDateEtxt = (EditText) findViewById(R.id.to_date);

@@ -46,14 +46,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void update(String item, String price) {
         SQLiteDatabase db = getWritableDatabase();
-        // 입력한 항목과 일치하는 행의 가격 정보 수정
         db.execSQL("UPDATE MONEYBOOK SET price=" + price + " WHERE item='" + item + "';");
         db.close();
     }
 
     public void delete(String item) {
         SQLiteDatabase db = getWritableDatabase();
-        // 입력한 항목과 일치하는 행 삭제
         db.execSQL("DELETE FROM MONEYBOOK WHERE item='" + item + "';");
         db.close();
     }

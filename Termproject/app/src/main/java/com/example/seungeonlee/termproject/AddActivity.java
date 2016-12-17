@@ -16,8 +16,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -25,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -47,6 +52,7 @@ public class AddActivity extends AppCompatActivity{
     RadioButton BtnEtc;
     TextView location_view;
 
+
     // GPSTracker class
     private GpsInfo gps;
 
@@ -58,10 +64,13 @@ public class AddActivity extends AppCompatActivity{
     int myCount=1;
     long myBaseTime;
     long myPauseTime;
-    int type;
     long totalTime;
     double latitude;
     double longitude;
+    String type;
+    String time;
+    String event;
+    EditText editText1;
 
 
     @Override
@@ -71,14 +80,7 @@ public class AddActivity extends AppCompatActivity{
         setContentView(R.layout.activity_add2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        final DBHelper2 dbHelper2 = new DBHelper2(getApplicationContext(), "Event2.db", null, 1);
 
 
         imgview = (ImageView) findViewById(R.id.imageView2);
@@ -95,6 +97,17 @@ public class AddActivity extends AppCompatActivity{
         Btn_Date = (RadioButton) findViewById(R.id.datebtn);
         BtnEtc = (RadioButton) findViewById(R.id.etcbtn);
         location_view = (TextView) findViewById(R.id.location_view);
+        editText1 = (EditText)findViewById(R.id.editText1);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                event = editText1.getText().toString();
+                dbHelper2.insert(time,type,event);
+                finish();
+            }
+        });
 
         // GPS 정보를 보여주기 위한 이벤트 클래스 등록
         button01.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +187,7 @@ public class AddActivity extends AppCompatActivity{
 
                 Address address = addresses.get(0);
                 sb.append(address.getCountryName()).append("/");
-                sb.append(address.getPostalCode()).append("/");
+                //sb.append(address.getPostalCode()).append("/");
                 sb.append(address.getLocality()).append("/");
                 sb.append(address.getThoroughfare()).append("/");
                 sb.append(address.getFeatureName());
@@ -228,7 +241,7 @@ public class AddActivity extends AppCompatActivity{
                         myBtnStart.setEnabled(false);//기록버튼 활성
                         cur_Status = Run; //현재상태를 런상태로 변경
                         break;
-                    case Run: //멈춤으로 바뀐 시작버튼 눌렀을때 ->stop버튼 눌렀을때
+                    case Run: //stop버튼 눌렀을때
                         myTimer.removeMessages(0); //핸들러 메세지 제거
                         myPauseTime = SystemClock.elapsedRealtime();
                         myBtnRec.setEnabled(true);
@@ -256,7 +269,7 @@ public class AddActivity extends AppCompatActivity{
             case R.id.stopbtn:
                 myTimer.removeMessages(0); //핸들러 메세지 제거
                 myPauseTime = SystemClock.elapsedRealtime();
-                myOutput.setText("00:00:00");
+                //myOutput.setText("00:00:00");
                 myBtnStart.setEnabled(true);
                 cur_Status = Init;
                 break;
@@ -273,30 +286,32 @@ public class AddActivity extends AppCompatActivity{
     };
     //현재시간을 계속 구해서 출력하는 메소드
     String getTimeOut(){
-        long now = SystemClock.elapsedRealtime(); //애플리케이션이 실행되고나서 실제로 경과된 시간(??)^^;
+        long now = SystemClock.elapsedRealtime(); //애플리케이션이 실행되고나서 실제로 경과된 시간;
         long outTime = now - myBaseTime;
         totalTime = outTime;
         String easy_outTime = String.format("%02d:%02d:%02d", outTime/1000 / 60, (outTime/1000)%60,(outTime%1000)/10);
+        time = Long.toString(outTime);
         return easy_outTime;
     }
 
     public void SelectClick(View view){
         switch(view.getId()){
             case studybtn:
-                type = 1;
+                type = "Study";
                 break;
             case exercisebtn:
-                type = 2;
+                type = "Exercise";
                 break;
             case datebtn:
-                type = 3;
+                type = "Date";
                 break;
             case etcbtn:
-                type=4;
+                type="etc";
                 break;
         }
     }
 
-
 }
+
+
 
