@@ -34,7 +34,7 @@ public class managementActivity extends AppCompatActivity {
         Intent intent = getIntent();
         ArrayList GoalArray = new ArrayList<GoalList>();
         GoalList data = (GoalList)getIntent().getSerializableExtra("data");
-        final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Goal_1.db", null, 1);
+        final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Goal_2.db", null, 1);
         //dbHelper.insert(data.date.toString(), data.type1.toString(), data.mygoal.toString());
 
         ViewArray = dbHelper.getView();

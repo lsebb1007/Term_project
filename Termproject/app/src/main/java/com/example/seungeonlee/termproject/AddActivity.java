@@ -172,7 +172,7 @@ public class AddActivity extends AppCompatActivity{
                     startActivityForResult(Intent.createChooser(intent,
                             "Complete action using"), PICK_FROM_GALLERY);
                 } catch (ActivityNotFoundException e) {
-                    // Do nothing for now
+
                 }
             }
         });
@@ -187,7 +187,6 @@ public class AddActivity extends AppCompatActivity{
 
                 Address address = addresses.get(0);
                 sb.append(address.getCountryName()).append("/");
-                //sb.append(address.getPostalCode()).append("/");
                 sb.append(address.getLocality()).append("/");
                 sb.append(address.getThoroughfare()).append("/");
                 sb.append(address.getFeatureName());
